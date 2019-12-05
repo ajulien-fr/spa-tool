@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listing des Animaux{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <a href="{{ path('animal_new') }}" class="btn btn-secondary my-4">Créer un Animal</a>
+
+    <table id="animal-table" data-toggle="table" data-locale="fr-FR" data-resizable="true" data-pagination="true" data-search="true" data-show-columns="true" data-show-export="true" data-export-types="['csv']" data-filter-control="true" data-show-search-clear-button="true">
+        <thead>
+            <tr>
+                <th data-sortable="true" data-filter-control="input">ID</th>
+                <th data-filter-control="select">Famille</th>
+                <th data-filter-control="input">Nom</th>
+                <th data-filter-control="select">Genre</th>
+                <th data-sortable="true" data-filter-control="input">ICAD</th>
+                <th data-filter-control="input">Remarque</th>
+                <th data-filter-control="input">Actions</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for animal in animals %}
+            <tr>
+                <td>{{ animal.id }}</td>
+                <td>{{ animal.famille }}</td>
+                <td>{{ animal.nom }}</td>
+                <td>{{ animal.genre }}</td>
+                <td>{{ animal.icad }}</td>
+                <td>{{ animal.remarque }}</td>
+                <td class="text-center">
+                    {% for action in animal.actions %}
+                    <span>
+                    	<a href="{{ path('action_show', {'id': action.id}) }}" class="badge badge-pill badge-info">{{ action.type }} ({{ action.id }})</a>
+                    </span>
+                    {% endfor %}
+                </td>
+                <td>
+                	<span>
+	                	<a href="{{ path('animal_show', {'id': animal.id}) }}" class="badge badge-success">voir</a>
+	                	<a href="{{ path('animal_edit', {'id': animal.id}) }}" class="badge badge-warning">éditer</a>
+                	</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

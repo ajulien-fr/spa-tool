@@ -1,0 +1,7 @@
+{% if contributeur.actions.isEmpty() == true %}
+	<form method="post" action="{{ path('contributeur_delete', {'id': contributeur.id}) }}" onsubmit="return confirm('Êtes vous certain de vouloir supprimer ce Contributeur ?');">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contributeur.id) }}">
+		<button class="btn btn-danger btn-block mt-3">Supprimer</button>
+	</form>
+{% endif %}

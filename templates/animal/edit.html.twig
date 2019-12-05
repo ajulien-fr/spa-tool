@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Édition d'un Animal
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="alert alert-info text-center my-4">
+			<h1>Édition d'un Animal</h1>
+		</div>
+
+		{{ include('animal/_form.html.twig') }}
+
+		{{ include('animal/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

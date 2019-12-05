@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Lecture d'une Action
+{% endblock %}
+
+{% block body %}
+    <div class="container mb-4">
+        <div class="alert alert-info text-center my-4">
+            <h1>Lecture d'une Action</h1>
+        </div>
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <td>{{ action.id }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Type</th>
+                    <td>{{ action.type }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Date</th>
+                    <td>{{ action.date ? action.date|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Dépense</th>
+                    <td>{{ action.depense }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Recette</th>
+                    <td>{{ action.recette }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Remarque</th>
+                    <td>{{ action.remarque }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Contributeur</th>
+                    <td>{% if action.contributeur != null %}<a href="{{ path('contributeur_show', {'id': action.contributeur.id}) }}" class="badge badge-pill badge-info">{{ action.contributeur }}</a>{% endif %}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Animal</th>
+                    <td>{% if action.animal != null %}<a href="{{ path('animal_show', {'id': action.animal.id}) }}" class="badge badge-pill badge-info">{{ action.animal }}</a>{% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ path('action_index') }}" class="btn btn-secondary btn-block">Listing</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ path('action_edit', {'id': action.id}) }}" class="btn btn-warning btn-block">Éditer</a>
+            </div>
+        </div>
+
+        {{ include('action/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

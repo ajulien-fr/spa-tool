@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Édition d'un Contributeur
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="alert alert-info text-center my-4">
+			<h1>Édition d'un Contributeur</h1>
+		</div>
+
+		{{ include('contributeur/_form.html.twig') }}
+
+		{{ include('contributeur/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

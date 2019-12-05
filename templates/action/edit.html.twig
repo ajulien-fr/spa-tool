@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Édition d'une Action
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="alert alert-info text-center my-4">
+			<h1>Édition d'une Action</h1>
+		</div>
+
+		{{ include('action/_form.html.twig') }}
+
+		{{ include('action/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

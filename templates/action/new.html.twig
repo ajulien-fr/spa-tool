@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'une Action
+{% endblock %}
+
+{% block body %}
+	<div class="container mb-4">
+		<div class="alert alert-info text-center my-4">
+			<h1>Création d'une Action</h1>
+		</div>
+		{{ include('action/_form.html.twig') }}
+	</div>
+{% endblock %}

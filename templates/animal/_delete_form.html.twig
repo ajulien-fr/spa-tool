@@ -1,0 +1,7 @@
+{% if animal.actions.isEmpty() == true %}
+	<form method="post" action="{{ path('animal_delete', {'id': animal.id}) }}" onsubmit="return confirm('Êtes vous certain de vouloir supprimer cet Animal ?');">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ animal.id) }}">
+		<button class="btn btn-danger btn-block mt-3">Supprimer</button>
+	</form>
+{% endif %}

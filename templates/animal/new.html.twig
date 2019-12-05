@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'un Animal
+{% endblock %}
+
+{% block body %}
+	<div class="container mb-4">
+		<div class="alert alert-info text-center my-4">
+			<h1>Création d'un Animal</h1>
+		</div>
+		{{ include('animal/_form.html.twig') }}
+	</div>
+{% endblock %}

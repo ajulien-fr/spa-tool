@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'un Contributeur
+{% endblock %}
+
+{% block body %}
+	<div class="container mb-4">
+		<div class="alert alert-info text-center my-4">
+			<h1>Création d'un Contributeur</h1>
+		</div>
+		{{ include('contributeur/_form.html.twig') }}
+	</div>
+{% endblock %}

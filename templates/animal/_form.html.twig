@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+
+<div class="form-group row">
+	{{ form_label(form.famille, null, {'label_attr': {'class': 'col-md-2 text-center'}}) }}
+	<div class="col-md-10">
+		{{ form_widget(form.famille, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<div class="form-group row">
+	{{ form_label(form.nom, null, {'label_attr': {'class': 'col-md-2 text-center'}}) }}
+	<div class="col-md-10">
+		{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<div class="form-group row">
+	{{ form_label(form.genre, null, {'label_attr': {'class': 'col-md-2 text-center'}}) }}
+	<div class="col-md-10">
+		{{ form_widget(form.genre, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<div class="form-group row">
+	{{ form_label(form.icad, "ICAD", {'label_attr': {'class': 'col-md-2 text-center'}}) }}
+	<div class="col-md-10">
+		{{ form_widget(form.icad, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<div class="form-group row">
+	{{ form_label(form.remarque, null, {'label_attr': {'class': 'col-md-2 text-center'}}) }}
+	<div class="col-md-10">
+		{{ form_widget(form.remarque, {'attr': {'class': 'form-control'}}) }}
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<a href="{{ path('animal_index') }}" class="btn btn-secondary btn-block">Listing</a>
+	</div>
+	<div class="col-md-6">
+		<button class="btn btn-warning btn-block">Sauvegarder</button>
+	</div>
+</div>
+{{ form_end(form) }}

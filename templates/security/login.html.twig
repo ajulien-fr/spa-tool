@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form method="post">
+        <div class="my-4 text-center">
+            <h1>Bienvenue !</h1>
+            <p>Veuillez vous identifier</p>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-danger my-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+        <div class="my-4">Vous êtes identifié en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">logout</a></div>
+        {% endif %}
+
+        <div class="row my-4 align-items-center">
+            <div class="col-md-2 text-center">
+                <label for="inputEmail" class="mb-0">Email</label>
+            </div>
+            <div class="col-md-10">
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+            </div>
+        </div>
+
+        <div class="row my-4 align-items-center">
+            <div class="col-md-2 text-center">        
+                <label for="inputPassword" class="mb-0">Password</label>
+            </div>
+            <div class="col-md-10">
+                <input type="password" name="password" id="inputPassword" class="form-control" required>
+            </div>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div class="row my-4">
+            <div class="offset-md-2 col-md-10">
+                <button class="btn btn-block btn-secondary" type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

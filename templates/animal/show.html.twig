@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Lecture d'un Animal
+{% endblock %}
+
+{% block body %}
+    <div class="container mb-4">
+        <div class="alert alert-info text-center my-4">
+            <h1>Lecture d'un Animal</h1>
+        </div>
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <td>{{ animal.id }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Famille</th>
+                    <td>{{ animal.famille }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <td>{{ animal.nom }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Genre</th>
+                    <td>{{ animal.genre }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">ICAD</th>
+                    <td>{{ animal.icad }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Remarque</th>
+                    <td>{{ animal.remarque }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">Actions</th>
+                    <td>
+                        {% for action in animal.actions %}
+                            <a href="{{ path('action_show', {'id': action.id}) }}" class="badge badge-pill badge-info">{{ action }}</a>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ path('animal_index') }}" class="btn btn-secondary btn-block">Listing</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ path('animal_edit', {'id': animal.id}) }}" class="btn btn-warning btn-block">Éditer</a>
+            </div>
+        </div>
+
+        {{ include('animal/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Listing des Contributeurs
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <a href="{{ path('contributeur_new') }}" class="btn btn-secondary my-4">Créer un Contributeur</a>
+
+        <table id="contributeur-table" data-toggle="table" data-locale="fr-FR" data-resizable="true" data-pagination="true" data-search="true" data-show-columns="true" data-show-export="true" data-export-types="['csv']" data-filter-control="true" data-show-search-clear-button="true">
+            <thead>
+                <tr>
+                    <th data-sortable="true" data-filter-control="input">ID</th>
+                    <th data-filter-control="input">Nom</th>
+                    <th data-filter-control="input">Adresse</th>
+                    <th data-sortable="true" data-filter-control="input">Code Postal</th>
+                    <th data-filter-control="input">Ville</th>
+                    <th data-filter-control="input">Téléphone</th>
+                    <th data-filter-control="input">Email</th>
+                    <th data-filter-control="input">Remarque</th>
+                    <th data-filter-control="input">Actions</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contributeur in contributeurs %}
+                    <tr>
+                        <td>{{ contributeur.id }}</td>
+                        <td>{{ contributeur.nom }}</td>
+                        <td>{{ contributeur.adresse }}</td>
+                        <td>{{ contributeur.codePostal }}</td>
+                        <td>{{ contributeur.ville }}</td>
+                        <td>{{ contributeur.telephone }}</td>
+                        <td>{{ contributeur.email }}</td>
+                        <td>{{ contributeur.remarque }}</td>
+                        <td class="text-center">
+                            {% for action in contributeur.actions %}
+                                <span>
+                                    <a href="{{ path('action_show', {'id': action.id}) }}" class="badge badge-pill badge-info">{{ action.type }} ({{ action.id }})</a>
+                                </span>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <span>
+                                <a href="{{ path('contributeur_show', {'id': contributeur.id}) }}" class="badge badge-success">voir</a>
+                                <a href="{{ path('contributeur_edit', {'id': contributeur.id}) }}" class="badge badge-warning">éditer</a>
+                            </span>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

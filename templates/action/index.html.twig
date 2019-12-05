@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listing des Actions{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <a href="{{ path('action_new') }}" class="btn btn-secondary my-4">Créer une Action</a>
+
+    <table id="action-table" data-toggle="table" data-locale="fr-FR" data-resizable="true" data-pagination="true" data-search="true" data-show-columns="true" data-show-export="true" data-export-types="['csv']" data-filter-control="true" data-show-search-clear-button="true">
+        <thead>
+            <tr>
+                <th data-sortable="true" data-filter-control="input">ID</th>
+                <th data-filter-control="input">Type</th>
+                <th data-sortable="true" data-filter-control="input">Date</th>
+                <th data-filter-control="input">Dépense</th>
+                <th data-filter-control="input">Recette</th>
+                <th data-filter-control="input">Remarque</th>
+                <th data-filter-control="input">Animal</th>
+                <th data-filter-control="input">Contributeur</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for action in actions %}
+            <tr>
+                <td>{{ action.id }}</td>
+                <td>{{ action.type }}</td>
+                <td>{{ action.date ? action.date|date('Y-m-d') : '' }}</td>
+                <td>{{ action.depense }}</td>
+                <td>{{ action.recette }}</td>
+                <td>{{ action.remarque }}</td>
+                <td class="text-center">{% if action.animal != null %}<a href="{{ path('animal_show', {'id': action.animal.id}) }}" class="badge badge-pill badge-info">{{ action.animal.nom }} ({{ action.animal.id }})</a>{% endif %}</td>
+                <td class="text-center">{% if action.contributeur != null %}<a href="{{ path('contributeur_show', {'id': action.contributeur.id}) }}" class="badge badge-pill badge-info">{{ action.contributeur.nom }} ({{ action.contributeur.id }})</a>{% endif %}</td>
+                <td>
+                    <span>
+                        <a href="{{ path('action_show', {'id': action.id}) }}" class="badge badge-success">voir</a>
+                        <a href="{{ path('action_edit', {'id': action.id}) }}" class="badge badge-warning">éditer</a>
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
