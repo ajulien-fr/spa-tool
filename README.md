@@ -8,7 +8,7 @@ J'installe https://symfony.com/ ; https://getcomposer.org/ ; https://yarnpkg.com
 
 Je me connecte en root à la base de données.
 Et j'exécute les commandes sql suivantes :
-(vous pouvez les modifier mais alors il faudra aussi modifier la variable **DATABASE_URL** dans le fichier **.env** se trouvant à la racine du projet :
+Vous pouvez les modifier mais alors il faudra aussi modifier la variable **DATABASE_URL** dans le fichier **.env** se trouvant à la racine du projet :
 
 ```sql
 CREATE USER 'db_spa_user'@'localhost' IDENTIFIED BY 'db_spa_password';
