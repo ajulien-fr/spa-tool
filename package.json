@@ -6,7 +6,7 @@
         "bootstrap": "^4.4.1",
         "bootstrap-table": "^1.15.5",
         "core-js": "^3.0.0",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "jquery-resizable-columns": "git+https://github.com/dobtco/jquery-resizable-columns.git",
         "node-sass": "^4.13.0",
         "popper.js": "^1.16.0",
