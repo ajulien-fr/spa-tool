@@ -8,7 +8,7 @@
         "core-js": "^3.0.0",
         "jquery": "^3.4.1",
         "jquery-resizable-columns": "git+https://github.com/dobtco/jquery-resizable-columns.git",
-        "node-sass": "^4.13.0",
+        "node-sass": "^4.13.1",
         "popper.js": "^1.16.0",
         "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
